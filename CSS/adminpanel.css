@@ -16,7 +16,7 @@
   box-sizing: border-box;
 }
 .header{
-  height:15%;
+  height:25%;
   display: flex;
   align-items: center;
   overflow: hidden;
@@ -24,17 +24,17 @@
 }
 .logo{
   width:200px;
-  height:100px;
+  height:200px;
   cursor:pointer;
 }
 .btn{
   cursor: pointer;
-  color:#cc0052;
+  color:#fff;
   font-size: 18px;
   letter-spacing: 2px;
   padding: 10px 30px;
   border:2px solid #003333;
-  background: transparent;
+  background:#cc0052;
   text-decoration: none;
   text-align: center;
   font-weight: bold;
@@ -46,9 +46,10 @@
 }
 .content{
   text-align: center;
-  margin-top: 12%;
+  margin-top: 3%;
 }
 .content h1{
-  font-size: 80px;
+  font-size: 70px;
   color: white;
+  padding-bottom: 2%;
 }
