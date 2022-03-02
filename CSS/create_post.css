@@ -1,0 +1,73 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@700&family=Poppins:wght@400;500;600&display=swap');
+*{
+    margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+body{
+    background-image: url("../Images/back.jfif");
+    padding: 0 10px;
+}
+.container{
+    max-width:500px;
+    width:100%;
+    background-color: rgba(255, 255, 255, 0.658);
+    margin:45px auto;
+    padding:30px;
+    box-shadow: 5px 5px 5px rgba(0,0,0,0.5);
+}
+.container .title{
+    font-size: 30px;
+    font-weight: bold;
+    margin-bottom: 30px;
+    color:rgb(134, 38, 91);
+    text-align: center;
+    text-transform: uppercase;
+}
+.container .form{
+    width:100%;
+}
+.container .form .input_field{
+    margin-bottom: 15px;
+    display:flex;
+    align-items: center;
+}
+.container .form .input_field label{
+    width:200px;
+    margin-right: 10px;
+}
+.container .form .inputi .input,
+.container .form .input_field .input{
+    width:100%;
+    outline:none;
+    font-size:15px;
+    padding:8px 10px;
+    border:1px solid rgb(139, 30, 107);
+    border-radius: 3px;
+    transition: all 0.5 ease;
+}
+.container .form .input_field .input:focus,
+.container .form .inputi .input:focus,
+.container .form .input_field .textarea:focus,
+.container .form .input_field select:focus{
+    border: 1px solid rgb(240, 236, 8);
+}
+.container .form .input_field .btn{
+    width:100%;
+    padding: 8px 10px;
+    font-size:15px;
+    border:0;
+    background: rgb(141, 50, 106);
+    color:azure;
+    cursor: pointer;
+    border-radius: 3px;
+    outline: none;
+}
+.container .form .input_field:last-child{
+    margin-bottom: 0;
+}
+.container .form .input_field .btn:hover{
+    background:rgb(218, 85, 162);
+    color:black;
+}

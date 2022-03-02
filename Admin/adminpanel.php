@@ -14,7 +14,7 @@
         </div>
         <div class="content">
             <h1>Welcome Admin</h1>
-            <button class="btn"> Create Post </button>
+            <button onclick="window.location.href='http://localhost:8080/Project-Event-jaankari/admin/create_a_post.php';" class="btn"> Create Post </button>
             <button class="btn"> View Posts </button>
             <button class="btn"> Send Email </button>
             <button class="btn"> Logout </button>
