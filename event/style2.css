@@ -1,0 +1,118 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+.show-btn{
+    color: #0D6EFD;
+    padding: 13px 18px;
+    font-size: 20px;
+    font-weight: 500;
+    text-transform: uppercase;
+    cursor: pointer;
+  }
+
+  ::selection{
+    color: #fff;
+    background: #0D6EFD;
+  }
+  .show-btn{
+    position: absolute;
+    top: 100%;
+    left: 100%;
+    transform: translate(-50%, -50%);
+    
+    border-radius: 5px;
+    box-shadow: 0px 10px 15px rgba(0,0,0,0.1);
+  }
+body{
+  height: 100vh;
+  background-image: url("pic1.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  
+}
+
+.wrapper{
+    z-index: 5;
+    background: #fff;
+    padding: 30px;
+    text-align: center;
+    max-width: 600px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    top: 30px;
+    opacity: 1;
+    pointer-events: auto;
+    transition: all 0.3s ease;
+    background-image: url("bgpic.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+  
+  .logo img {
+    width: 170px;
+    float: left;
+    margin-left: 10px;
+    
+  }
+
+  .wrapper .cancel-icon{
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    color: rgb(0, 0, 0);
+    cursor: pointer;
+  }
+  .cancel-icon:hover{
+    color:rgb(88, 0, 0) ;
+  }
+
+  #toggle{
+    display: none;
+  }
+  #toggle:checked ~ .wrapper{
+    opacity: 0;
+    pointer-events: none;
+    top: 40%;
+  }
+
+  .wrapper{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 5px;
+    box-shadow: 0px 10px 15px rgba(0,0,0,0.1);
+  }
+
+  .content header{
+    font-size: 30px;
+    font-weight: 600;
+    color:black;
+    
+  }
+  .content pre{
+    color:black;
+    font-size: 14px;
+    font-weight: 500;
+
+  }
+  .content p{
+    font-size: 14px;
+    font-weight: 400;
+    margin-left: 20px;
+  }
+
+  .wrapper .content img{
+    width: 300px;
+    border-radius: 10px;
+    
+
+    
+  }
