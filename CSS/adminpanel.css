@@ -23,9 +23,8 @@
   position: relative;
 }
 .logo{
-  width:200px;
-  height:200px;
-  cursor:pointer;
+  width:150px;
+  height:100px;
 }
 .btn{
   cursor: pointer;

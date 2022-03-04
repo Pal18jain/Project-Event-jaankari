@@ -1,3 +1,4 @@
+
 <?php
 
 // php select option value from database
@@ -12,10 +13,17 @@ $databaseName = "event_jaankari";
 $connect = mysqli_connect($hostname, $username, $password, $databaseName);
 
 // mysql select query
-$query = "SELECT * FROM `category`";
+$query = "SELECT C_id,C_Name FROM `category`";
 
 $result1 = mysqli_query($connect, $query);
 
+?>
+<?php
+    $id= $_GET['id'];
+    $query = "SELECT * FROM events WHERE E_id='$id'";
+    $data= mysqli_query($connect,$query);
+
+    $result=mysqli_fetch_array($data);
 ?>
 
 <html>
@@ -56,79 +64,57 @@ $result1 = mysqli_query($connect, $query);
         <div class="container">
             <form action="#" method="POST" enctype="multipart/form-data" autocomplete="off">
             <div class="title">
-                Create A Post
+                Update Event Details
             </div>
             <div class="form">
                 <div class="input_field">
                     <label> Event Name*</label>
-                    <input type="text" class="input" name="ename" required>
+                    <input type="text" class="input" value="<?php echo $result['title']; ?>" name="ename" required>
                 </div>
                 <div class="input_field">
                     <label> Start Date*</label>
-                    <input  id="StartDate" class="input" name="sdate" required>
+                    <input  id="StartDate" class="input" value="<?php echo $result['start_date']; ?>" name="sdate" required>
                 </div>
                 <div class="input_field">
                     <label> End Date*</label>
-                    <input id="EndDate" class="input" name="edate" required>
+                    <input id="EndDate" class="input" value="<?php echo $result['end_date']; ?>" name="edate" required>
                 </div>
                 <div class="input_field">
                     <label> Event Venue*</label>
-                    <input type="text" class="input" name="evenue">
+                    <input type="text" class="input" value="<?php echo $result['city']; ?>" required name="evenue">
                 </div>
                 <div class="input_field">
                     <label> Event Details*</label>
-                    <textarea class="input" name="edetails" required></textarea>
+                    <textarea class="input" name="edetails" required><?php echo $result['description']; ?></textarea>
                 </div>
                 <div class="input_field">
                     <label for="category"> Event Category*</label>
-                    <select id="category" name="category" class="input" required>
-                            <option value="" disabled selected hidden>Choose a Category</option>
-                            <?php while($row1 = mysqli_fetch_array($result1)):;?>
-                            <option value="<?php echo $row1[0];?>"><?php echo $row1[1];?></option>
-                            <?php endwhile;?>
+                    <select id="category" name="category"  class="input" required>
+                    <option value="" disabled selected hidden>Choose a Category</option>
+                            <?php while($row1 = mysqli_fetch_array($result1)){?>
+                                <option value="<?php echo $row1[0];?>"<?php if($row1[0] == $result['C_id']) echo 'selected="selected"';?>><?php echo $row1[1];?></option>
+                                <?php }?>
                     </select>
                 </div>
+               
                 <div class="input_field">
                     <label> Event Website URL*</label>
-                    <input type="text" class="input" name="url" required>
+                    <input type="text" class="input" value="<?php echo urldecode($result['website_link']); ?>" name="url" required>
                 </div>
                 <div class="input_field">
                     <label> Image* </label>
                     <input class="input" name="img" type="file" onchange="readURL(this)" accept="Image/*" required>
                 </div>
                 <div class="input_field">
-                    <input type="submit" value="UPLOAD" name="register" class="btn">
+                    <input type="submit" value="UPDATE" name="update" class="btn">
                 </div>
             </div>
         </form>
         </div>
     </body>
 </html>
-<script>  
- $(document).ready(function(){  
-      $('#UPLOAD').click(function(){  
-           var image_name = $('#img').val();  
-           if(image_name == '')  
-           {  
-                alert("Please Select Image");  
-                return false;  
-           }  
-           else  
-           {  
-                var extension = $('#img').val().split('.').pop().toLowerCase();  
-                if(jQuery.inArray(extension, ['gif','png','jpg','jpeg']) == -1)  
-                {  
-                     alert('Invalid Image File');  
-                     $('#img').val('');  
-                     return false;  
-                }  
-           }  
-      });  
- });  
- </script>  
-
 <?php
-    if(isset($_POST['register'])){
+    if(isset($_POST['update'])){
         $ename=$_POST['ename'];
         $ename = mysqli_real_escape_string($connect,$ename); 
 
@@ -147,17 +133,16 @@ $result1 = mysqli_query($connect, $query);
         
       $file = addslashes(file_get_contents($_FILES["img"]["tmp_name"]));  
 
-        $query= "INSERT INTO events (title,description, start_date, end_date, city, C_id,Image, website_link)
-                            values('$ename','$edetails','$sdate','$edate','$evenue','$category','$file','$url')";
+        $query= "UPDATE events SET title='$ename', description='$edetails', start_date='$sdate', end_date = '$edate',city='$evenue',C_id='$category',Image='$file',website_link= '$url' WHERE E_id='$id'";
         $data = mysqli_query($connect, $query);
         if($data){
-            echo "<script>alert('Record Inserted')</script>";
+            echo "<script>alert('Record Updated')</script>";
             ?>
-            <meta http-equiv = "refresh" content = "0; url = http://localhost:8080/Project-Event-jaankari/admin/adminpanel.php" />
+            <meta http-equiv = "refresh" content = "0; url = http://localhost:8080/Project-Event-jaankari/admin/display_event.php" />
             <?php
         }
         else{
-            echo "failed";
+            echo "failed to update";
         }
     }
 ?>
