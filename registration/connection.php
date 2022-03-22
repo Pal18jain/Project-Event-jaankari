@@ -4,11 +4,11 @@
     $password = "";
     $dbname ="event_jaankari";
 
-    $conn =mysqli_connect($esrvername,$username,$password,$dbname);
+    $conn =mysqli_connect($servername,$username,$password,$dbname);
 
     if($conn)
     {
-        echo "Connection ok";
+        // echo "Connection ok";
     }
     else
     {

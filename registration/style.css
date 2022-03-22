@@ -16,7 +16,7 @@ body{
   color: #fff;
   background: #0D6EFD;
 }
-.show-btn, .wrapper{
+ .wrapper{
   position: absolute;
   top: 50%;
   left: 50%;
@@ -25,14 +25,7 @@ body{
   border-radius: 5px;
   box-shadow: 0px 10px 15px rgba(0,0,0,0.1);
 }
-.show-btn{
-  color: #0D6EFD;
-  padding: 13px 18px;
-  font-size: 20px;
-  font-weight: 500;
-  text-transform: uppercase;
-  cursor: pointer;
-}
+
 .wrapper{
   z-index: 5;
   background: #fff;
@@ -43,13 +36,14 @@ body{
   display: flex;
   align-items: center;
   flex-direction: column;
-  top: 60%;
+  top: 50%;
   opacity: 1;
   pointer-events: auto;
   transition: all 0.3s ease;
   background-image: url("44\ 1.png");
   background-size: cover;
   background-repeat: no-repeat;
+ 
 }
 
 .logo img {
@@ -89,6 +83,8 @@ body{
 }
 .wrapper .content{
   margin: 20px 0;
+ 
+  position: relative;
  
 }
 .content header{
