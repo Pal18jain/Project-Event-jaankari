@@ -12,6 +12,12 @@
 <div class="logo">
       <img src="logo.png" alt="logo">
     </div>
+    <div class="topnav-right">
+  <a href="#home">Home</a>
+  <a href="#news">View Events</a>
+  <a href="#contact">Contact Us</a>
+  <a href="#about">Admin</a>  
+</div>
   <input type="checkbox" id="toggle">
   <label for="toggle" class="show-btn"></label>
   <div class="wrapper">
