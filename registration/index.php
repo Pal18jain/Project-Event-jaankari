@@ -33,7 +33,7 @@
       $data = mysqli_query($conn,$query);
       if($data)
       {
-        echo "Data Inserted into Database" ;
+       // echo "Data Inserted into Database" ;
       }
       else
       {
