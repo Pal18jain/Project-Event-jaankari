@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,18 +11,21 @@
     <link rel="stylesheet" href="../CSS/adminpanel.css">
 </head>
 <body>
+    
     <div class="container">
         <div class="header">
-            <img src="../Images/जानकारी-removebg-preview.png" class="logo">
+        <img src="../Images/जानकारी-removebg-preview.png" width="150" height="150">
         </div>
         <div class="content">
             <h1>Welcome Admin</h1>
             <button onclick="window.location.href='http://localhost:8080/Project-Event-jaankari/admin/create_a_post.php';" class="btn"> Create Post </button>
             <button onclick="window.location.href='http://localhost:8080/Project-Event-jaankari/admin/display_event.php';" class="btn"> Update/Delete Posts </button>
+            <button onclick="window.location.href='http://localhost:8080/Project-Event-jaankari/admin/add_category.php';" class="btn"> Add Category </button>
+            <button onclick="window.location.href='http://localhost:8080/Project-Event-jaankari/admin/display_category.php';" class="btn"> Update/Delete Category </button>
             <button class="btn"> Send Email </button>
-            <button class="btn"> Logout </button>
+            <button onclick="window.location.href='http://localhost:8080/Project-Event-jaankari/admin/logout.php';" class="btn"> Logout </button>
         </div>
     </div>
-        
+    
 </body>
 </html>
