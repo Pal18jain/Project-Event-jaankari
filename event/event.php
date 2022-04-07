@@ -24,7 +24,7 @@ $result = mysqli_query($conn, "SELECT * FROM events limit 1");
   <a href="#home">Home</a>
   <a href="#news">View Events</a>
   <a href="#contact">Contact Us</a>
-  <a href="#about">Admin</a>  
+   
 </div>
 
 
