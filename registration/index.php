@@ -1,3 +1,4 @@
+<?php include ("connection.php"); ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,8 +12,13 @@
 <div class="logo">
       <img src="logo.png" alt="logo">
     </div>
+    <div class="topnav-right">
+  <a href="#home">Home</a>
+  <a href="#news">View Events</a>
+  <a href="#contact">Contact Us</a>  
+</div>
   <input type="checkbox" id="toggle">
-  <label for="toggle" class="show-btn">Let's get started!</label>
+  <label for="toggle" class="show-btn"></label>
   <div class="wrapper">
     
     <label for="toggle">
@@ -28,6 +34,17 @@
     $userEmail = ""; //first we leave email field blank
     if(isset($_POST['register'])){ //if register btn clicked
       $userEmail = $_POST['email']; //getting user entered email
+      $query = "INSERT INTO user values('','$userEmail')";
+      $data = mysqli_query($conn,$query);
+      if($data)
+      {
+       // echo "Data Inserted into Database" ;
+      }
+      else
+      {
+        echo "Failed" ;
+      }
+
       if(filter_var($userEmail, FILTER_VALIDATE_EMAIL)){ //validating user email
         $subject = "You have successfully registered- Event Jankari";
         $message = "Thanks for registering to our website. You will receive updates from us.";
@@ -70,6 +87,8 @@
     <div class="text"> 
     </div>
   </div>
-    
+
 </body>
+
 </html>
+ 
