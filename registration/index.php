@@ -15,7 +15,7 @@
     <div class="topnav-right">
   <a href="#home">Home</a>
   <a href="#news">View Events</a>
-  <a href="#contact">Contact Us</a>  
+  <a href="http://localhost/Palak/Project-Event-jaankari/contact_us/contact.html" target="_blank">Contact Us</a>  
 </div>
   <input type="checkbox" id="toggle">
   <label for="toggle" class="show-btn"></label>
