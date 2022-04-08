@@ -51,9 +51,9 @@ $result = mysqli_query($conn, "SELECT * FROM events limit 1");
             <pre>Start Date: <?php echo $row['start_date'];?>                              Organiser: Banasthali Vidyapith</pre>
         <pre style="text-align: justify;">        End Date: <?php echo $row['end_date'];?>                                  City: <?php echo $row['city'];?> </pre>
             <pre style="text-align: center;">                                             State: Rajasthan</pre>
-            <a style="text-align: left" href="<?php echo $row['website_link'];?> " target="_blank"><p>View Event Website</p></a>
-            <pre style="text-align: justify;">  <?php echo $row['description'];?> </pre>
-                                    
+           <?php echo "<a href=\"" . urldecode($row["website_link"]). "\"> Click Here </a>" ?>
+           <?php echo "<a href=\"" . urldecode($row["register_link"]). "\"> Click Here </a>" ?>
+            <pre style="text-align: justify;">  <?php echo $row['description'];?> </pre>                  
          <?php 
             $i++;
         }
