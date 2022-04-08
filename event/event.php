@@ -44,14 +44,25 @@ $result = mysqli_query($conn, "SELECT * FROM events limit 1");
             ?>
         <div class="content">
             <header> <?php echo $row['title'];?> </header>
+            <br>
 
             <?php echo '<img src="data:image/jpeg;base64,'.base64_encode($row['Image']).'" width="400px;"height="300px;"/>'?>
-            <br>
-            <pre>Start Date: <?php echo $row['start_date'];?>                              Organiser: Banasthali Vidyapith</pre>
-        <pre style="text-align: justify;">        End Date: <?php echo $row['end_date'];?>                                  City: <?php echo $row['city'];?> </pre>
-            <pre style="text-align: center;">                                             State: Rajasthan</pre>
-           <?php echo "<a href=\"" . urldecode($row["website_link"]). "\"> Click Here </a>" ?>
-           <?php echo "<a href=\"" . urldecode($row["register_link"]). "\"> Click Here </a>" ?>
+            <table cellspacing="15">
+            <tr><td>Start Date: <?php echo $row['start_date'];?> 
+        </td> <td></td><td></td><td></td><td></td>
+           </td><td>City: <?php echo $row['city'];?>  </td></tr>
+            <tr><td>End Date: <?php echo $row['end_date'];?> </td>
+            </td> <td></td><td></td><td></td><td></td>
+            </td><td>City: <?php echo $row['contact_no'];?>  </td></tr></tr>
+            <tr><td><?php echo "<a href=\"" . urldecode($row["website_link"]). "\"> Website link </a>" ?> </td>
+            </td> <td></td><td></td><td></td><td></td>
+            </td><td><?php echo "<a href=\"" . urldecode($row["register_link"]). "\"> Click Here to register </a>" ?> </td></tr></tr>
+                    
+                                       
+        </table>                             
+            
+           
+           
             <pre style="text-align: justify;">  <?php echo $row['description'];?> </pre>                  
          <?php 
             $i++;
