@@ -1,3 +1,10 @@
+<?php require_once "controllerUserData.php"; ?>
+<?php 
+$email = $_SESSION['email'];
+if($email == false){
+  header('Location: login-user.php');
+}
+?>
 <html>
     <head>
         <title>Display</title>
@@ -42,8 +49,8 @@ if($total != 0){
         <h1 align="center"> Category Details<h1>
         <table align="center" border=1 cellspacing="7" width="70%">
             <tr>
-            <th width="10%">Category Id</th>
-            <th width="30%">Category Name</th>
+            <th width="10%">Event Type Id</th>
+            <th width="30%">Even Type Name</th>
             <th width="10%">Image</th>
             <th width="20%">Operations</th>
         </tr>

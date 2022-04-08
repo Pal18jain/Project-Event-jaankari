@@ -1,3 +1,10 @@
+<?php require_once "controllerUserData.php"; ?>
+<?php 
+$email = $_SESSION['email'];
+if($email == false){
+  header('Location: login-user.php');
+}
+?>
 <?php
 
 // php select option value from database
@@ -30,7 +37,7 @@ $connect = mysqli_connect($hostname, $username, $password, $databaseName);
             </div>
             <div class="form">
                 <div class="input_field">
-                    <label> Category Name*</label>
+                    <label> Event Type*</label>
                     <input type="text" class="input" name="acname" required>
                 </div>
                 <div class="input_field">
@@ -81,7 +88,7 @@ $connect = mysqli_connect($hostname, $username, $password, $databaseName);
         if($data){
             echo "<script>alert('Record Inserted')</script>";
             ?>
-            <meta http-equiv = "refresh" content = "0; url = http://localhost:8080/Project-Event-jaankari/admin/adminpanel.php" />
+            <meta http-equiv = "refresh" content = "0; url = http://localhost:8080/Project-Event-jaankari/admin/home.php" />
             <?php
         }
         else{

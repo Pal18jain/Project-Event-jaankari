@@ -41,7 +41,7 @@ $connect = mysqli_connect($hostname, $username, $password, $databaseName);
             </div>
             <div class="form">
                 <div class="input_field">
-                    <label> Category Name*</label>
+                    <label> Event Type Name*</label>
                     <input type="text" class="input" value="<?php echo $result['C_Name']; ?>" name="acname" required>
                 </div>
                 <div class="input_field">

@@ -1,3 +1,10 @@
+<?php require_once "controllerUserData.php"; ?>
+<?php 
+$email = $_SESSION['email'];
+if($email == false){
+  header('Location: login-user.php');
+}
+?>
 <?php
 
 // php select option value from database
@@ -60,7 +67,7 @@ $result1 = mysqli_query($connect, $query);
             </div>
             <div class="form">
                 <div class="input_field">
-                    <label> Event Name*</label>
+                    <label> Title*</label>
                     <input type="text" class="input" name="ename" required>
                 </div>
                 <div class="input_field">
@@ -72,15 +79,15 @@ $result1 = mysqli_query($connect, $query);
                     <input id="EndDate" class="input" name="edate" required>
                 </div>
                 <div class="input_field">
-                    <label> Event Venue*</label>
+                    <label> Event Venue</label>
                     <input type="text" class="input" name="evenue">
                 </div>
                 <div class="input_field">
-                    <label> Event Details*</label>
+                    <label> Description*</label>
                     <textarea class="input" name="edetails" required></textarea>
                 </div>
                 <div class="input_field">
-                    <label for="category"> Event Category*</label>
+                    <label for="category"> Event Type*</label>
                     <select id="category" name="category" class="input" required>
                             <option value="" disabled selected hidden>Choose a Category</option>
                             <?php while($row1 = mysqli_fetch_array($result1)):;?>
@@ -90,11 +97,19 @@ $result1 = mysqli_query($connect, $query);
                 </div>
                 <div class="input_field">
                     <label> Event Website URL*</label>
-                    <input type="text" class="input" name="url" required>
+                    <input type="text" class="input" name="url" required >
+                </div>
+                <div class="input_field">
+                    <label> Registration URL*</label>
+                    <input type="text" class="input" name="rurl" required>
                 </div>
                 <div class="input_field">
                     <label> Image* </label>
                     <input class="input" name="img" type="file" onchange="readURL(this)" accept="Image/*" required>
+                </div>
+                <div class="input_field">
+                    <label> Contact Number</label>
+                    <input type="text" class="input" name="cno" >
                 </div>
                 <div class="input_field">
                     <input type="submit" value="UPLOAD" name="register" class="btn">
@@ -145,15 +160,21 @@ $result1 = mysqli_query($connect, $query);
         $url = urlencode($url); 
         $url = mysqli_real_escape_string($connect,$url); 
         
-      $file = addslashes(file_get_contents($_FILES["img"]["tmp_name"]));  
+      $file = addslashes(file_get_contents($_FILES["img"]["tmp_name"])); 
+      $rurl=$_POST['rurl']; 
+      $rurl = urlencode($rurl); 
+      $rurl = mysqli_real_escape_string($connect,$rurl); 
 
-        $query= "INSERT INTO events (title,description, start_date, end_date, city, C_id,Image, website_link)
-                            values('$ename','$edetails','$sdate','$edate','$evenue','$category','$file','$url')";
+      $cno=$_POST['cno'];
+      $cno = mysqli_real_escape_string($connect,$cno);
+
+        $query= "INSERT INTO events (title,description, start_date, end_date, city, C_id,Image, website_link,register_link,contact_no)
+                            values('$ename','$edetails','$sdate','$edate','$evenue','$category','$file','$url','$rurl','$cno')";
         $data = mysqli_query($connect, $query);
         if($data){
             echo "<script>alert('Record Inserted')</script>";
             ?>
-            <meta http-equiv = "refresh" content = "0; url = http://localhost:8080/Project-Event-jaankari/admin/adminpanel.php" />
+            <meta http-equiv = "refresh" content = "0; url = http://localhost:8080/Project-Event-jaankari/admin/home.php" />
             <?php
         }
         else{

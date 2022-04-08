@@ -1,3 +1,10 @@
+<?php require_once "controllerUserData.php"; ?>
+<?php 
+$email = $_SESSION['email'];
+if($email == false){
+  header('Location: login-user.php');
+}
+?>
 <html>
     <head>
         <title>Display</title>
@@ -40,18 +47,20 @@ $total=mysqli_num_rows($data);
 if($total != 0){
     ?>
         <h1 align="center"> All Event Details<h1>
-        <table align="center" border=1 cellspacing="7" width="98%">
+        <table align="center" border=1 cellspacing="7" width="100%">
             <tr>
-            <th width="4%">Id</th>
-            <th width="10%">Title</th>
+            <th width="3%">Id</th>
+            <th width="9%">Title</th>
             <th width="20%">Description</th>
-            <th width="7%">Start Date</th>
-            <th width="7%">End Date</th>
-            <th width="10%">Venue</th>
-            <th width="8%">Category</th>
-            <th width="10%">Website URL</th>
+            <th width="4%">Start Date</th>
+            <th width="4%">End Date</th>
+            <th width="6%">Venue</th>
+            <th width="6%">Event Type</th>
+            <th width="7%">Website URL</th>
             <th width="10%">Image</th>
-            <th width="12%">Operations</th>
+            <th width="7%">Registration URL</th>
+            <th width="8%">Contact No.</th>
+            <th width="16%">Operations</th>
         </tr>
     <?php
     while($result=mysqli_fetch_array($data)){
@@ -65,7 +74,8 @@ if($total != 0){
         <td>".$result['C_Name']."</td>
         <td><a href=\"" . urldecode($result["website_link"]). "\"> Click Here </a></td>
         <td>".'<img src="data:image/jpeg;base64,'.base64_encode($result['Image']).'" width="150px;"height="140px;"/>',"</td>
-
+        <td><a href=\"" . urldecode($result["register_link"]). "\"> Click Here </a></td>
+        <td>".$result['contact_no']."</td>
         <td><a href='updatepost_design.php?id=$result[E_id]'> <input type='submit' value='Update' class='update'></a>
         <a href='delete_post.php?id=$result[E_id]'> <input type='submit' value='Delete' class='delete' onclick='return checkdelete()'></a></td>
         </tr>";

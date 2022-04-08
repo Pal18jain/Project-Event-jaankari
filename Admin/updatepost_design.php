@@ -68,7 +68,7 @@ $result1 = mysqli_query($connect, $query);
             </div>
             <div class="form">
                 <div class="input_field">
-                    <label> Event Name*</label>
+                    <label> Title*</label>
                     <input type="text" class="input" value="<?php echo $result['title']; ?>" name="ename" required>
                 </div>
                 <div class="input_field">
@@ -80,15 +80,15 @@ $result1 = mysqli_query($connect, $query);
                     <input id="EndDate" class="input" value="<?php echo $result['end_date']; ?>" name="edate" required>
                 </div>
                 <div class="input_field">
-                    <label> Event Venue*</label>
-                    <input type="text" class="input" value="<?php echo $result['city']; ?>" required name="evenue">
+                    <label> Event Venue</label>
+                    <input type="text" class="input" value="<?php echo $result['city']; ?>" name="evenue">
                 </div>
                 <div class="input_field">
-                    <label> Event Details*</label>
+                    <label> Description*</label>
                     <textarea class="input" name="edetails" required><?php echo $result['description']; ?></textarea>
                 </div>
                 <div class="input_field">
-                    <label for="category"> Event Category*</label>
+                    <label for="category"> Event Type*</label>
                     <select id="category" name="category"  class="input" required>
                     <option value="" disabled selected hidden>Choose a Category</option>
                             <?php while($row1 = mysqli_fetch_array($result1)){?>
@@ -98,12 +98,20 @@ $result1 = mysqli_query($connect, $query);
                 </div>
                
                 <div class="input_field">
-                    <label> Event Website URL*</label>
+                    <label> Website URL*</label>
                     <input type="text" class="input" value="<?php echo urldecode($result['website_link']); ?>" name="url" required>
                 </div>
                 <div class="input_field">
                     <label> Image* </label>
                     <input class="input" name="img" type="file" onchange="readURL(this)" accept="Image/*" required>
+                </div>
+                <div class="input_field">
+                    <label> Registration URL*</label>
+                    <input type="text" class="input" value="<?php echo urldecode($result['register_link']); ?>" name="rurl" >
+                </div>
+                <div class="input_field">
+                    <label> Contact Number</label>
+                    <input type="text" class="input" value="<?php echo $result['contact_no']; ?>" name="cno">
                 </div>
                 <div class="input_field">
                     <input type="submit" value="UPDATE" name="update" class="btn">
@@ -132,8 +140,14 @@ $result1 = mysqli_query($connect, $query);
         $url = mysqli_real_escape_string($connect,$url); 
         
       $file = addslashes(file_get_contents($_FILES["img"]["tmp_name"]));  
+      $rurl=$_POST['rurl'];
+        $rurl = urlencode($rurl); 
+        $rurl = mysqli_real_escape_string($connect,$rurl);
 
-        $query= "UPDATE events SET title='$ename', description='$edetails', start_date='$sdate', end_date = '$edate',city='$evenue',C_id='$category',Image='$file',website_link= '$url' WHERE E_id='$id'";
+        $cno=$_POST['cno'];
+        $cno = mysqli_real_escape_string($connect,$cno);
+
+        $query= "UPDATE events SET title='$ename', description='$edetails', start_date='$sdate', end_date = '$edate',city='$evenue',C_id='$category',Image='$file',website_link= '$url', register_link='$rurl', contact_no='$cno' WHERE E_id='$id'";
         $data = mysqli_query($connect, $query);
         if($data){
             echo "<script>alert('Record Updated')</script>";
