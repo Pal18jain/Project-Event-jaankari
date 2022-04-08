@@ -45,8 +45,7 @@ $result = mysqli_query($conn, "SELECT * FROM events limit 1");
         <div class="content">
             <header> <?php echo $row['title'];?> </header>
 
-
-            <img src="getImage.php?id=1" width="175" height="200"  alt="Fest">
+            <?php echo '<img src="data:image/jpeg;base64,'.base64_encode($row['Image']).'" width="400px;"height="300px;"/>'?>
             <br>
             <pre>Start Date: <?php echo $row['start_date'];?>                              Organiser: Banasthali Vidyapith</pre>
         <pre style="text-align: justify;">        End Date: <?php echo $row['end_date'];?>                                  City: <?php echo $row['city'];?> </pre>
