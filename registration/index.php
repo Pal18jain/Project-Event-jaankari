@@ -34,6 +34,11 @@
     $userEmail = ""; //first we leave email field blank
     if(isset($_POST['register'])){ //if register btn clicked
       $userEmail = $_POST['email']; //getting user entered email
+      $queri=mysqli_query($conn,"SELECT * FROM `admin` WHERE email='$userEmail'");
+      if(mysqli_num_rows($queri)>0){
+        echo "You are alredy registered";
+      }
+      else{
       $query = "INSERT INTO user values('','$userEmail')";
       $data = mysqli_query($conn,$query);
       if($data)
@@ -75,6 +80,7 @@
         <?php
       }
     }
+  }
     ?>
       <div class="field">
         <input type="text" class="email" name="email" placeholder="Email Address" required value="<?php echo $userEmail ?>">
