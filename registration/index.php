@@ -14,8 +14,8 @@
     </div>
     <div class="topnav-right">
   <a href="#home">Home</a>
-  <a href="#news">View Events</a>
-  <a href="http://localhost/Palak/Project-Event-jaankari/contact_us/contact.html" target="_blank">Contact Us</a>  
+  <a href="http://localhost:8080/Project-Event-jaankari/event/event.php">View Events</a>
+  <a href="http://localhost:8080/Project-Event-jaankari/contact_us/contact.html">Contact Us</a>  
 </div>
   <input type="checkbox" id="toggle">
   <label for="toggle" class="show-btn"></label>
@@ -34,11 +34,7 @@
     $userEmail = ""; //first we leave email field blank
     if(isset($_POST['register'])){ //if register btn clicked
       $userEmail = $_POST['email']; //getting user entered email
-      $queri=mysqli_query($conn,"SELECT * FROM `admin` WHERE email='$userEmail'");
-      if(mysqli_num_rows($queri)>0){
-        echo "You are alredy registered";
-      }
-      else{
+     
       $query = "INSERT INTO user values('','$userEmail')";
       $data = mysqli_query($conn,$query);
       if($data)
@@ -79,7 +75,7 @@
         </div>
         <?php
       }
-    }
+    
   }
     ?>
       <div class="field">

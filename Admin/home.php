@@ -52,7 +52,6 @@ if($email != false && $password != false){
             <button onclick="window.location.href='http://localhost:8080/Project-Event-jaankari/admin/display_event.php';" class="btn"> Update/Delete Posts </button>
             <button onclick="window.location.href='http://localhost:8080/Project-Event-jaankari/admin/add_category.php';" class="btn"> Add Category </button>
             <button onclick="window.location.href='http://localhost:8080/Project-Event-jaankari/admin/display_category.php';" class="btn"> Update/Delete Category </button>
-            <button class="btn"> Send Email </button>
             <button onclick="window.location.href='http://localhost:8080/Project-Event-jaankari/admin/logout.php';" class="btn"> Logout </button>
         </div>
     </div>

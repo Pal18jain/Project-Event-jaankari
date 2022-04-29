@@ -1,4 +1,5 @@
 <?php require_once "controllerUserData.php"; ?>
+<?php include 'sendemail.php'; ?>
 <?php 
 $email = $_SESSION['email'];
 if($email == false){
