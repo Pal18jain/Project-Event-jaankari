@@ -114,7 +114,7 @@ if(isset($_POST['signup'])){
                 $message = "Your password reset code is $code";
                 $sender = "From: palakjain5920@gmail.com";
                 if(mail($email, $subject, $message, $sender)){
-                    $info = "We've sent a passwrod reset otp to your email - $email";
+                    $info = "We've sent a password reset otp to your email - $email";
                     $_SESSION['info'] = $info;
                     $_SESSION['email'] = $email;
                     header('location: reset-code.php');
