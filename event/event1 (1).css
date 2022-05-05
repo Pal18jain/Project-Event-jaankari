@@ -1,0 +1,71 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@700&family=Poppins:wght@400;500;600&display=swap');
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+.topnav-right{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    display:flex;
+    justify-content:flex-end;
+    align-items: center;
+    padding: 20px 100px;
+}
+.topnav-right a{
+    color:#fff;
+    font-size: 16px;
+    font-weight: 500;
+    text-decoration: none;
+    margin:0 30px;
+    padding:0 10px;
+    border-radius: 20px;
+    transition:0.3s;
+    transition-property: color,background;
+}
+.topnav-right a:hover{
+    color:black;
+    background: #fff;
+}
+
+.show-btn{
+    color: #0D6EFD;
+    padding: 13px 18px;
+    font-size: 20px;
+    font-weight: 500;
+    text-transform: uppercase;
+    cursor: pointer;
+  }
+
+  ::selection{
+    color: #fff;
+    background: #0D6EFD;
+  }
+  .show-btn{
+    position: absolute;
+    top: 100%;
+    left: 100%;
+    transform: translate(-50%, -50%);
+    
+    border-radius: 5px;
+    box-shadow: 0px 10px 15px rgba(0,0,0,0.1);
+  }
+body{
+  height: 100%;
+  background-image: url("../Images/back.jfif");
+  background-size: cover;
+  background-repeat: repeat-x;
+  
+}
+  .logo img {
+    width: 170px;
+    position:fixed;
+    left:0;
+    top:0;
+    margin-left: 10px;
+    align-items: top;
+    
+  }

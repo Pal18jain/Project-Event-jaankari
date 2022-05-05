@@ -9,8 +9,8 @@
 </head>
 <body>
 <div class="topnav-right">
-  <a href="#home">Home</a>
-  <a href="#news">View Events</a>
+  <a href="../event/eventhomepage.php">Home</a>
+  <a href="../event/eventhomepage.php">View Events</a>
   <a href="../contact_us/contact.html">Contact Us</a>
 </div>
     <div class="container">

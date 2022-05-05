@@ -1,7 +1,11 @@
 <?php
-include_once 'database.php';
+include_once 'database.php';?>
+<?php
+                  if(isset($_GET['E_id'])){
+                    $E_id = $_GET['E_id'];
 
-$result = mysqli_query($conn, "SELECT * FROM events limit 1");
+$result = mysqli_query($conn, "SELECT * FROM events WHERE E_id=$E_id");
+                  }
 ?>
 
 <!DOCTYPE html>
@@ -21,9 +25,9 @@ $result = mysqli_query($conn, "SELECT * FROM events limit 1");
   <label for="toggle" class="show-btn"></label>
 
   <div class="topnav-right">
-  <a href="#home">Home</a>
-  <a href="#news">View Events</a>
-  <a href="#contact">Contact Us</a>
+  <a href="eventhomepage (1).php">Home</a>
+  <a href="eventhomepage (1).php">View Events</a>
+  <a href="../contact_us/contact.html">Contact Us</a>
    
 </div>
 
@@ -39,7 +43,7 @@ $result = mysqli_query($conn, "SELECT * FROM events limit 1");
         </label>
         <?php
 
-        $i=0;
+    
         while($row = mysqli_fetch_array($result)) {
             ?>
         <div class="content">
@@ -65,7 +69,7 @@ $result = mysqli_query($conn, "SELECT * FROM events limit 1");
            
             <pre style="text-align: justify;">  <?php echo $row['description'];?> </pre>                  
          <?php 
-            $i++;
+    
         }
         ?>
             
